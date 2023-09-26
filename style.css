@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    background: whitesmoke;
+}
+
+.main {
+    width: 640px;
+    height: 640px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    perspective: 1000px;
+}
+
+.card {
+    width: calc(25% - 10px);
+    height: calc(33% - 10px);
+    margin: 5px;
+    border-radius: 5px;
+    position: relative;
+    transform: scale(1);
+    transform-style: preserve-3d;
+    transition: transform .5s;
+    box-shadow: 0 0 5px 1px grey;
+    cursor: pointer;
+}
+
+.card a {
+    font-size: 100px;
+    font-family: "Inter", sans-serif;
+}
+
+.card:active {
+    transform: scale(0.97);
+    transition: transform .2s;
+}
+
+.card.flipped {
+    transform: rotateY(180deg);
+}
+
+.front-face, .back-face {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    position: absolute;
+    border-radius: 5px;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.front-face {
+    transform: rotateY(180deg);
+}
+
+#win-overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.7);
+    text-align: center;
+    z-index: -1;
+    font-size: 40px;
+    font-family: "Inter", sans-serif;
+    opacity: 0;
+    transition-duration: 1s;
+    transition-property: opacity;
+}
+
+#win-overlay.show {
+    transition-duration: 1s;
+    transition-property: opacity;
+    opacity: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#win-overlay button {
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 0 5px;
+    font-family: "Inter", sans-serif;
+    cursor: pointer;
+}
