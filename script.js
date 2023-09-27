@@ -38,6 +38,7 @@ function checkWin() {
 function disableCards() {
     firstCard.removeEventListener("click", flipCard);
     secondCard.removeEventListener("click", flipCard);
+	
     checkWin();
     resetBoard();
 }
@@ -63,12 +64,11 @@ const playAgainButton = document.getElementById("play-again-button");
 
 playAgainButton.addEventListener("click", function () {
     resetGame();
-    document.getElementById("win-overlay").classList.remove("show");
-    document.getElementById("win-overlay").style.zIndex = -1;
 });
 
 function resetGame() {
-	cards.forEach(card => card.classList.remove("flipped"));
+    document.getElementById("win-overlay").classList.remove("show");
+    document.getElementById("win-overlay").style.zIndex = -1
     randomCards();
     resetBoard();
 }
