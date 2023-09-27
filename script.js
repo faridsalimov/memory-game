@@ -30,7 +30,7 @@ function checkWin() {
     if (matchedCards.length === cards.length) {
         setTimeout(() => {
             document.getElementById("win-overlay").classList.add("show");
-            document.getElementById("win-overlay").style.zIndex = 1;
+			document.getElementById("win-overlay").style.zIndex = 1;
         }, 500);
     }
 }
@@ -68,8 +68,8 @@ playAgainButton.addEventListener("click", function () {
 });
 
 function resetGame() {
+	cards.forEach(card => card.classList.remove("flipped"));
     randomCards();
-    cards.forEach(card => card.classList.remove("flipped"));
     resetBoard();
 }
 
