@@ -29,7 +29,8 @@ function checkWin() {
     const matchedCards = document.querySelectorAll(".card.flipped");
     if (matchedCards.length === cards.length) {
         setTimeout(() => {
-            
+            document.getElementById("win-overlay").classList.add("show");
+            document.getElementById("win-overlay").style.zIndex = 1;
         }, 500);
     }
 }
@@ -78,9 +79,6 @@ function randomCards() {
         card.style.order = randomPosition;
     });
 }
-
-document.getElementById("win-overlay").classList.add("show");
-document.getElementById("win-overlay").style.zIndex = 1;
 
 randomCards();
 cards.forEach(card => card.addEventListener("click", flipCard));
